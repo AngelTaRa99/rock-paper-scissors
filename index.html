@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>ROCK PAPER SCISSORS GAME</h1>
+    <div class="playArea">
+        <h2>Choose one to start the game!</h2>
+        <div class="gameArena">
+            <div class="playerOptions">
+                <p id="rock" class="playerChoice" onclick="handlePlayerChoice(1)">✊</p>
+                <p id='scissors' class="playerChoice" onclick="handlePlayerChoice(2)">✌️</p>
+                <p id='paper' class="playerChoice" onclick="handlePlayerChoice(3)">✋</p>
+            </div>
+            <div class="fightArea">
+                <p>VS</p>
+            </div>
+            <div class="cpuArea">
+                <p class="cpuChoice">
+                <p class="before">❓</p>
+                <p class="after"></p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="resultScreen">
+        <button class="playButton">PLAY AGAIN</button>
+        <p class="result"></p>
+    </div>
+    <script>
+        let playerChoice = 0;
+
+        function handlePlayerChoice(playerChoice) {
+            if (playerChoice == 1) {
+                document.getElementById("rock").style.opacity = '1.0';
+                document.getElementById("scissors").style.opacity = '0.5';
+                document.getElementById("paper").style.opacity = '0.5';
+            } else if (playerChoice == 2) {
+                document.getElementById("rock").style.opacity = '0.5';
+                document.getElementById("scissors").style.opacity = '1.0';
+                document.getElementById("paper").style.opacity = '0.5';
+            } else {
+                document.getElementById("rock").style.opacity = '0.5';
+                document.getElementById("scissors").style.opacity = '0.5';
+                document.getElementById("paper").style.opacity = '1.0';
+            }
+            callRockPaperScissors(playerChoice)
+        }
+
+        function callRockPaperScissors(playerHand) {
+            // create an integer variable for the cpu player choice and put a random number between 1 and 3 in it
+            let cpuHand = Math.floor((Math.random() * 10) / 3);
+            while (cpuHand == 0) {
+                cpuHand = Math.floor((Math.random() * 10) / 3);
+            }
+            
+            // if that analize the cases where the player wins, then an else if that detects a draw, the rest of the cases means that the player lost
+            //1 = rock, 2 = scissors, 3 = paper
+            var div = document.getElementsByClassName('.resultScreen')
+            if ((cpuHand == 1 && playerHand == 3) || (cpuHand == 2 && playerHand == 1) || (cpuHand == 3 && playerHand == 2)) {
+                console.log("Player wins!!")
+                div.innerHTML += 'aaaaaa';
+            } else if (cpuHand == playerHand) {
+                console.log("DRAW!!")
+            } else {
+                console.log("Player lose :(")
+            }
+
+        }
+    </script>
+</body>
+
+</html>
