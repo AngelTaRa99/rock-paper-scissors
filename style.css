@@ -45,6 +45,17 @@ button {
     border-radius: 1rem;
 }
 
+.scoreboard{
+    transition: 300ms;
+    background-color: rgba(255, 255, 255, 0.664);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    margin: 1rem;
+}
+
 .gameArena {
     transition: 300ms;
     display: flex;
@@ -91,8 +102,7 @@ button {
 .errorScreen{
     transition: 300ms;
     background-color: rgba(255, 0, 0, 0.356);
-    border-radius: 1.5rem;
-    padding: 1.5rem;
+    border-radius: 0.5rem;
     flex-direction: column;
     width: 90%;
     align-items: center;
@@ -106,7 +116,7 @@ button {
     border-radius: 1.5rem;
     padding: 1.5rem;
     display: none;
-    flex-direction: column;
+    justify-content: space-around;
     width: 90%;
     align-items: center;
     margin: 1rem;
@@ -117,10 +127,27 @@ button {
     background-color: var(--win-background);
     padding: 1rem 2rem;
     border-radius: 1rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 #result {
     transition: 300ms;
-    font-size: 3rem;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.title {
+    color: #2b2b2b;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.showScore{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.playerTitle, .computerTitle,#playerScore, #computerScore {
+    color: #2b2b2b;
 }
