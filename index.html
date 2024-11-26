@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    
-    <body>
-        <h1>ROCK PAPER SCISSORS GAME</h1>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>ROCK PAPER SCISSORS GAME</h1>
+    <div class="playArea">
+        <div id='errorScreen' class="errorScreen">
+            <p>PRESS <b>"PLAY AGAIN"</b> TO CONTINUE PLAYING</p>
+        </div>
         <div id='resultScreen' class="resultScreen">
             <p id="result"></p>
-            <button class="playButton">PLAY AGAIN</button>
+            <button class="playButton" onclick="handleReplay()">PLAY AGAIN</button>
         </div>
-        <div class="playArea">
         <h2>Choose one to start the game!</h2>
         <div class="gameArena">
             <div class="playerOptions">
-                <p id="rock" class="playerChoice" onclick="handlePlayerChoice(1)">✊</p>
-                <p id='scissors' class="playerChoice" onclick="handlePlayerChoice(2)">✌️</p>
-                <p id='paper' class="playerChoice" onclick="handlePlayerChoice(3)">✋</p>
+                <p id="rock" class="playerChoice" onclick="justOneChoice(1)">✊</p>
+                <p id='scissors' class="playerChoice" onclick="justOneChoice(2)">✌️</p>
+                <p id='paper' class="playerChoice" onclick="justOneChoice(3)">✋</p>
             </div>
             <div class="fightArea">
                 <p>VS</p>
@@ -35,6 +38,17 @@
     </div>
     <script>
         let playerChoice = 0;
+        let done = 0;
+
+        function justOneChoice(choice) {
+            if (done === 0) {
+                handlePlayerChoice(choice)
+                done = 1
+            } else {
+                document.getElementById("errorScreen").style.display = 'flex';
+            }
+
+        }
 
         function handlePlayerChoice(playerChoice) {
             if (playerChoice == 1) {
@@ -52,7 +66,7 @@
             }
             callRockPaperScissors(playerChoice)
         }
-        
+
         function callRockPaperScissors(playerHand) {
             // create an integer variable for the cpu player choice and put a random number between 1 and 3 in it
             let cpuHand = Math.floor((Math.random() * 10) / 3);
@@ -61,7 +75,7 @@
             }
 
             document.getElementById("before").style.display = 'none';
-            
+
             if (cpuHand == 1) {
                 document.getElementById("after").innerText = '✊';
             } else if (cpuHand == 2) {
@@ -83,7 +97,10 @@
             }
 
             document.getElementById("resultScreen").style.display = 'flex';
-            document.getElementById("resultScreen").style.position = 'absolute';
+        }
+
+        function handleReplay() {
+            window.location.reload()
         }
     </script>
 </body>

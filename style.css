@@ -26,12 +26,14 @@ h1,
 h2,
 p,
 button {
+    transition: 300ms;
     text-align: center;
     color: var(--text-color);
 }
 
 
 .playArea {
+    transition: 300ms;
     margin: 1rem;
     background-color: #1F4529;
     width: 90%;
@@ -43,29 +45,35 @@ button {
 }
 
 .gameArena {
+    transition: 300ms;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .playerOptions {
+    transition: 300ms;
     display: flex;
     flex-direction: column;
     margin: 1rem;
 }
 
 .playerChoice {
+    transition: 300ms;
     font-size: 5rem;
     background-color: #47663b00;
     border: #47663b00;
-    transition: 300ms;
     opacity: 0.7;
     margin: 1rem;
 }
 
 .playerChoice:hover {
-    opacity: 1;
     transition: 300ms;
+    opacity: 1;
+}
+
+.fightArea {
+    font-size: 2rem;
 }
 
 #before {
@@ -79,23 +87,39 @@ button {
     opacity: 1.0;
 }
 
+.errorScreen{
+    transition: 300ms;
+    background-color: rgba(255, 0, 0, 0.356);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    margin: 1rem;
+    display: none;
+
+}
 .resultScreen {
+    transition: 300ms;
     background-color: rgba(0, 0, 0, 0.664);
     border-radius: 1.5rem;
     padding: 1.5rem;
     display: none;
     flex-direction: column;
-    transition: 300ms;
+    width: 90%;
+    align-items: center;
+    margin: 1rem;
 }
 
 .playButton {
+    transition: 300ms;
     background-color: var(--win-background);
     padding: 1rem 2rem;
     border-radius: 1rem;
     font-weight: 800;
-   
 }
 
 #result {
-    font-size: 6rem;
+    transition: 300ms;
+    font-size: 3rem;
 }
